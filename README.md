@@ -1,66 +1,54 @@
-## Foundry
+🧠 What is ERC-8004?
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+ERC‑8004 is a proposed Ethereum standard (EIP) that introduces a trust layer for autonomous agents and interoperable systems. It is designed to fill the gap when “agents” (software, services, machines) need to discover one another, evaluate trustworthiness, and interact across organisational boundaries — without relying solely on centralised authorities. 
 
-Foundry consists of:
+🔍 Purpose & Vision
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+Agents in future Web3/AI ecosystems may perform tasks, interact with each other, form marketplaces, exchange services — but need identity, reputation, and validation primitives to do so in a trustless way. 
 
-## Documentation
 
-https://book.getfoundry.sh/
+ERC-8004 proposes three lightweight on-chain registries to support this: identity registry, reputation registry, validation registry. 
 
-## Usage
+It is built to be chain agnostic (works on Ethereum and EVM-compatible chains) and focuses on minimal on-chain logic (keeping heavy operations off-chain) so that it remains efficient and flexible. 
 
-### Build
+🧩 Core Components
 
-```shell
-$ forge build
-```
+Identity Registry
 
-### Test
+Each agent registers an identity (often as an NFT or agent ID) linked to an EVM address or domain. 
 
-```shell
-$ forge test
-```
+Metadata (“Agent Card”) may include capabilities, description, supported schemas, trust models. 
 
-### Format
+Reputation Registry
 
-```shell
-$ forge fmt
-```
+Allows off-chain or on-chain feedback, ratings, attestations about past behaviour.
 
-### Gas Snapshots
+Provides an audit trail so other agents or services can evaluate reliability. 
 
-```shell
-$ forge snapshot
-```
+Validation Registry
 
-### Anvil
+Enables stronger guarantees through validation mechanisms: e.g., crypto-economic staking, trusted execution environments (TEEs), zero-knowledge proofs. 
 
-```shell
-$ anvil
-```
+The standard remains abstract regarding which exact validation model is used; implementers can choose (feedback, re-execution, zk/TEE) depending on use-case. 
 
-### Deploy
+⚙️ Key Characteristics
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+Focuses on discovery, trust, interoperability rather than payments or just token standards. 
 
-### Cast
+Minimal on-chain logic means heavy work (scoring, analytics, delegation) can live off-chain, while core registries provide anchored truth. 
 
-```shell
-$ cast <subcommand>
-```
+Designed to integrate with existing agent-to-agent (A2A) protocols, helping agents from different organisations or ecosystems find each other and transact trusting their registry entries. 
 
-### Help
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+Being still in draft (as of 2025) — which means the specification may evolve, standards may refine. 
+
+
+🏗 Use Cases
+
+Marketplaces of AI agents (data analysis, report generation, automation) where trust in agent identity + past performance matters. 
+
+Device-to-device or IoT networks where machines need to authenticate and validate one another.
+
+Cross-organisation workflows: e.g., one company’s agent uses services of another’s agent — the identity + reputation layers facilitate safe collaboration.
+
+Validation of results/outcomes (e.g., an agent promises a result, a validator checks it, and the record goes on-chain).
