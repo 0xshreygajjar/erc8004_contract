@@ -19,7 +19,7 @@ contract IdentityRegistry is ERC721URIStorage, Ownable {
     event MetadataSet(uint256 indexed agentId, string indexed indexedKey, string key, bytes value);
     event UriUpdated(uint256 indexed agentId, string newUri, address indexed updatedBy);
 
-    constructor() ERC721("AgentIdentity", "AID") Ownable(msg.sender) {}
+    constructor() ERC721("FluidIdentity", "FLUID") Ownable(msg.sender) {}
 
     function register() external returns (uint256 agentId) {
         agentId = _lastId++;
