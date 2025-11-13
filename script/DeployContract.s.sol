@@ -18,8 +18,12 @@ contract DeployAndVerifyScript is Script {
         vm.startBroadcast();
 
         IdentityRegistry identityRegistry = new IdentityRegistry();
-        ReputationRegistry reputationRegistry = new ReputationRegistry(address(identityRegistry));
-        ValidationRegistry validationRegistry = new ValidationRegistry(address(identityRegistry));
+        ReputationRegistry reputationRegistry = new ReputationRegistry(
+            address(identityRegistry)
+        );
+        ValidationRegistry validationRegistry = new ValidationRegistry(
+            address(identityRegistry)
+        );
 
         vm.stopBroadcast();
 
